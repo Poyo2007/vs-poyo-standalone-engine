@@ -2046,7 +2046,7 @@ class PlayState extends MusicBeatState
 
 		missQueue.direction = 0;
 		missQueue.missedNote = null;
-		missQueue.missed = false
+		missQueue.missed = false;
 		// FlxG.watch.addQuick('asdfa', upP);
 		if ((upP || rightP || downP || leftP) && !boyfriend.stunned && generatedMusic)
 		{
