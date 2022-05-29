@@ -2087,7 +2087,6 @@ class PlayState extends MusicBeatState
 			missQueue.missedNote = null;
 		}
 		missNoteCheck(startCount, possibleNotes.length);
-		}
 
 		if ((up || right || down || left) && !boyfriend.stunned && generatedMusic)
 		{
