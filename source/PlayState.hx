@@ -2157,6 +2157,7 @@ class PlayState extends MusicBeatState
 			else
 				spr.centerOffsets();
 		});
+	}
 
 	function missNoteCheck(startCount:Int, currentCount:Int):Void
 	{
@@ -2569,5 +2570,4 @@ function badNoteCheck(controlList:Array<Bool>, note:Note)
 	}
 
 	var curLight:Int = 0;
-}
 }
