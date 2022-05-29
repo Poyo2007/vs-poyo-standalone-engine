@@ -128,7 +128,7 @@ class PlayState extends MusicBeatState
 	public static var daPixelZoom:Float = 6;
 	
 	var successThisFrame:Array<Bool> = [false, false, false, false];
-	var :MissType = new MissType(0, false, null);
+	var missQueue:MissType = new MissType(0, false, null);
 
 
 	var inCutscene:Bool = false;
