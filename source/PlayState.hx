@@ -2044,9 +2044,9 @@ class PlayState extends MusicBeatState
 		Conductor.safeZoneOffset = (Conductor.safeFrames / ((FlxG.updateFramerate / 60) * 60)) * 1000;
 		successThisFrame = [false, false, false, false];
 
-		.direction = 0;
-		.missedNote = null;
-		.missed = false
+		missQueue.direction = 0;
+		missQueue.missedNote = null;
+		missQueue.missed = false
 		// FlxG.watch.addQuick('asdfa', upP);
 		if ((upP || rightP || downP || leftP) && !boyfriend.stunned && generatedMusic)
 		{
@@ -2075,16 +2075,16 @@ class PlayState extends MusicBeatState
 			{
 				// No possible notes to hit lel
 				var foundDir:Bool = false;
-				.missed = true;
+				missQueue.missed = true;
 				for (i in 0...5)
 				{
 						if (i < 3 && controlArray[i])
-						.direction = i;
+						missQueue.direction = i;
 						foundDir = true;
 				}
-					if (i > 2 && !foundDir) .direction = i;
+					if (i > 2 && !foundDir) missQueue.direction = i;
 			}
-			.missedNote = null;
+			missQueue.missedNote = null;
 		}
 		missNoteCheck(startCount, possibleNotes.length);
 		}
