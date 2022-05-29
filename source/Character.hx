@@ -326,7 +326,7 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				flipX = true;
-			case 'bf-dead'
+			case 'bf-dead':
         var tex = Paths.getSparrowAtlas('DeadBF')
         frames = tex;
         
