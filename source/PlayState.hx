@@ -127,6 +127,7 @@ class PlayState extends MusicBeatState
 	// how big to stretch the pixel art assets
 	public static var daPixelZoom:Float = 6;
 	
+	var foundDirection:Array<Bool> = [false, false, false, false];
 	var successThisFrame:Array<Bool> = [false, false, false, false];
 	var missQueue:MissType = new MissType(0, false, null);
 
@@ -2069,8 +2070,11 @@ class PlayState extends MusicBeatState
 
 				// Jump notes
 				for (i in 0...possibleNotes.length)
+				{
 				noteCheck(controlArray[possibleNotes[i].noteData], controlArray, possibleNotes[i]);
-			}
+				}
+				  
+				}
 			else
 			{
 				// No possible notes to hit lel
@@ -2079,8 +2083,10 @@ class PlayState extends MusicBeatState
 				for (i in 0...5)
 				{
 						if (i < 3 && controlArray[i])
+						{
 						missQueue.direction = i;
 						foundDir = true;
+						}
 				}
 					if (i > 2 && !foundDir) missQueue.direction = i;
 			}
