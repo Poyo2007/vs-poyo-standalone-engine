@@ -2570,3 +2570,4 @@ function badNoteCheck(controlList:Array<Bool>, note:Note)
 
 	var curLight:Int = 0;
 }
+}
