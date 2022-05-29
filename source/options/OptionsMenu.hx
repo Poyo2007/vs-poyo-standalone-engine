@@ -28,7 +28,7 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['controls', 'set fps', 'downscroll: off', 'ghost tapping: off' 'About'];
+	var menuItems:Array<String> = ['controls', 'set fps', 'downscroll: off', 'ghost tapping: off', 'About'];
 
 	var _pad:FlxVirtualPad;
 
