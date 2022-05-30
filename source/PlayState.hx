@@ -2265,7 +2265,7 @@ class PlayState extends MusicBeatState
 				gf.playAnim('sad');
 			}
 			combo = 0;
-			noteMisses += 1
+			noteMisses += 1;
 
 			songScore -= 10;
 
