@@ -801,7 +801,6 @@ class PlayState extends MusicBeatState
 		notes.cameras = [camHUD];
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
-		rating.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
@@ -1904,19 +1903,19 @@ class PlayState extends MusicBeatState
 		{
 		  noteSicks += 1;
 		}
-		if (daRating = 'good')
+		else if (daRating = 'good')
 		{
 		  noteGoods += 1;
 		}
-		if (daRating = 'ok')
+		else if (daRating = 'ok')
 		{
 		  noteOks += 1;
 		}
-		if (daRating = 'bad')
+		else if (daRating = 'bad')
 		{
 		  noteBads += 1;
 		}
-		if (daRating = 'shit')
+		else if (daRating = 'shit')
 		{
 		  noteShits += 1;
 		}
