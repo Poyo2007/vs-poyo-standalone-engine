@@ -1422,8 +1422,6 @@ class PlayState extends MusicBeatState
 	  + noteSicks
     + "\nGoods: "
     + noteGoods
-    + "\nOks: "
-    + noteOks
     + "\nBads: "
     + noteBads
     + "\nShits: "
@@ -1879,45 +1877,29 @@ class PlayState extends MusicBeatState
 		//
 
 		var rating:FlxSprite = new FlxSprite();
+		
 		var score:Int = 350;
-
+    noteSicks += 1;
 		var daRating:String = "sick";
+		
 
 		if (noteDiff > Conductor.safeZoneOffset * 0.9)
 		{
 			daRating = 'shit';
 			score = 50;
+			noteShits += 1;
 		}
 		else if (noteDiff > Conductor.safeZoneOffset * 0.75)
 		{
 			daRating = 'bad';
 			score = 100;
+			noteBads += 1;
 		}
 		else if (noteDiff > Conductor.safeZoneOffset * 0.2)
 		{
 			daRating = 'good';
 			score = 200;
-		}
-		
-		if (daRating = 'sick')
-		{
-		  noteSicks += 1;
-		}
-		else if (daRating = 'good')
-		{
-		  noteGoods += 1;
-		}
-		else if (daRating = 'ok')
-		{
-		  noteOks += 1;
-		}
-		else if (daRating = 'bad')
-		{
-		  noteBads += 1;
-		}
-		else if (daRating = 'shit')
-		{
-		  noteShits += 1;
+			noteGoods += 1;
 		}
 
 		songScore += score;
