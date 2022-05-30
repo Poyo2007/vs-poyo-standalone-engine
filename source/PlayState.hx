@@ -144,7 +144,7 @@ class PlayState extends MusicBeatState
 
 	var config:Config = new Config();
 	var downScroll:Bool = false;
-	var ghostTapping:Bool = false;
+	var ghostTap:Bool = false;
 
 	override public function create()
 	{
