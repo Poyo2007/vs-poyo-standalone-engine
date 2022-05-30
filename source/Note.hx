@@ -176,7 +176,7 @@ class Note extends FlxSprite
 			// The * 0.5 is so that it's easier to hit them too late, instead of too early
       //haha fuck you equality rules
 			if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
-				&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.25))
+				&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.4))
 				canBeHit = true;
 			else
 				canBeHit = false;
