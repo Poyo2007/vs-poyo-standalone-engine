@@ -787,7 +787,7 @@ class PlayState extends MusicBeatState
 		add(scoreTxt);
 		
 		var NoteStats:FlxText = new FlxText(0, 350, 0, "", 20);
-    add(NoteStats)
+    add(NoteStats);
 
 		iconP1 = new HealthIcon(SONG.player1, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
