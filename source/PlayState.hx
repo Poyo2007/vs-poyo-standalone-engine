@@ -118,6 +118,15 @@ class PlayState extends MusicBeatState
 	var talking:Bool = true;
 	var songScore:Int = 0;
 	var scoreTxt:FlxText;
+	var NoteStats:FlxText;
+
+	//Note Stats
+	public var noteMisses:Int = 0;
+	public var noteSicks:Int = 0;
+	public var noteGoods:Int = 0;
+	public var noteBads:Int = 0;
+	public var noteOks:Int = 0;
+	public var noteShits:Int = 0;
 
 	public static var campaignScore:Int = 0;
 
@@ -776,6 +785,9 @@ class PlayState extends MusicBeatState
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT);
 		scoreTxt.scrollFactor.set();
 		add(scoreTxt);
+		
+		var NoteStats:FlxText = new FlxText(0, 350, 0, "", 20);
+    add(NoteStats)
 
 		iconP1 = new HealthIcon(SONG.player1, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
@@ -789,9 +801,11 @@ class PlayState extends MusicBeatState
 		notes.cameras = [camHUD];
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
+		rating.cameras = [camHUD]
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
+		NoteStats.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
 		// if (SONG.song == 'South')
@@ -1404,6 +1418,19 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		scoreTxt.text = "Score:" + songScore;
+		
+		NoteStats.text = "Sicks: "
+	  + noteSicks
+    + "\nGoods: "
+    + noteGoods
+    + "\nOks: "
+    + noteOks
+    + "\nBads: "
+    + noteBads
+    + "\nShits: "
+    + noteShits
+    + "\nMisses: "
+    + noteMisses;
 
 		#if android
 		var enterPressed = FlxG.keys.justPressed.ENTER || FlxG.android.justReleased.BACK;
@@ -1731,6 +1758,8 @@ class PlayState extends MusicBeatState
 					{
 						health -= 0.0475;
 						vocals.volume = 0;
+						noteMisses += 1;
+						combo = 0;
 					}
 
 					daNote.active = false;
@@ -1847,7 +1876,7 @@ class PlayState extends MusicBeatState
 
 		var coolText:FlxText = new FlxText(0, 0, 0, placement, 32);
 		coolText.screenCenter();
-		coolText.x = FlxG.width * 0.55;
+		coolText.x = FlxG.width * 0.5;
 		//
 
 		var rating:FlxSprite = new FlxSprite();
@@ -1869,6 +1898,27 @@ class PlayState extends MusicBeatState
 		{
 			daRating = 'good';
 			score = 200;
+		}
+		
+		if (daRating = 'sick')
+		{
+		  noteSicks += 1;
+		}
+		if (daRating = 'good')
+		{
+		  noteGoods += 1;
+		}
+		if (daRating = 'ok')
+		{
+		  noteOks += 1;
+		}
+		if (daRating = 'bad')
+		{
+		  noteBads += 1;
+		}
+		if (daRating = 'shit')
+		{
+		  noteShits += 1;
 		}
 
 		songScore += score;
@@ -1952,7 +2002,7 @@ class PlayState extends MusicBeatState
 			numScore.velocity.y -= FlxG.random.int(140, 160);
 			numScore.velocity.x = FlxG.random.float(-5, 5);
 
-			if (combo >= 10 || combo == 0)
+			if (combo >= 0 || combo == 0)
 				add(numScore);
 
 			FlxTween.tween(numScore, {alpha: 0}, 0.2, {
@@ -2209,12 +2259,13 @@ class PlayState extends MusicBeatState
 	{
 		if (!boyfriend.stunned)
 		{
-			health -= 0.04;
+			health -= 0.0475;
 			if (combo > 5 && gf.animOffsets.exists('sad'))
 			{
 				gf.playAnim('sad');
 			}
 			combo = 0;
+			noteMisses += 1
 
 			songScore -= 10;
 
