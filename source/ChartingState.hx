@@ -704,7 +704,7 @@ class ChartingState extends MusicBeatState
       + "\ncurStep: "
       + curStep
       + "\ncurBeat: "
-      + curBeat
+      + curBeat;
 			
 		super.update(elapsed);
 	}
