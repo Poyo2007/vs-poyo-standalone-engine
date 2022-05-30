@@ -1873,7 +1873,7 @@ class PlayState extends MusicBeatState
 
 		var coolText:FlxText = new FlxText(0, 0, 0, placement, 32);
 		coolText.screenCenter();
-		coolText.x = FlxG.width * 0.5;
+		coolText.x = FlxG.width * 0.55;
 		//
 
 		var rating:FlxSprite = new FlxSprite();
@@ -1983,7 +1983,7 @@ class PlayState extends MusicBeatState
 			numScore.velocity.y -= FlxG.random.int(140, 160);
 			numScore.velocity.x = FlxG.random.float(-5, 5);
 
-			if (combo >= 0 || combo == 0)
+			if (combo >= 1 || combo == 0)
 				add(numScore);
 
 			FlxTween.tween(numScore, {alpha: 0}, 0.2, {
